@@ -6,18 +6,12 @@ const getStyles = () => ({
     item: css({
         userSelect: 'none',
     }),
-
+    
     image: css({
-        height: '100vh',
-        width: '32vw',
-        objectFit: 'cover',
-        display: 'block',
+        width: '100%',
     }),
-
+    
     container: css({
-        top: '20vh',
-        height: '60vh',
-        overflow: 'hidden'
     })
 });
 
@@ -31,7 +25,17 @@ const ImageCarousel: React.FC = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
-        pauseOnHover: true
+        responsive: [
+            {
+                breakpoint: 768, 
+                settings: {
+                    slidesToShow: window.innerWidth < window.innerHeight ? 1 : 3,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: false,
+                },
+            },
+        ],
     };
 
     return (

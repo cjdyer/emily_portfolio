@@ -5,23 +5,22 @@ const getStyles = () => ({
     container: css({
         color: '#333',
         position: 'relative',
-        zIndex: 10,
-        height: '100%',
-        padding: '20px',
+        padding: '4vw',
     }),
-
+    
     paragraph: css({
         overflow: 'hidden',
         textAlign: 'center',
         color: '#333',
-        height: '60vh',
         userSelect: 'none',
-        fontSize: 'calc(1.5vw + 0.75vh)',
+        margin: '4vh 0'
     }),
-
+    
     header: css({
-        fontSize: 'calc(2vw + 1vh)',
-        userSelect: 'none'
+        color: '#333',
+        textAlign: 'center',
+        userSelect: 'none',
+        margin: 0
     }),
 });
 

@@ -1,33 +1,41 @@
 import ImageCarousel from './ImageCarousel';
-import Footer from './Footer';
+import Links from './Links';
 import Blurb from './Blurb';
-import { css } from '@emotion/css';
+import { css, cx } from '@emotion/css';
 
 const getStyles = () => ({
   app: css({
-    textAlign: 'center',
-    height: '100%',
-    display: 'flex',
-    flexDirection: 'column',
-    justifyContent: 'space-between',
+    paddingBottom: '1vh'
   }),
 
-  sidebar: css({
-    position: 'fixed',
-    left: '5vw',
-    top: 0,
-    boxShadow: '-0.5vw 1.5vw #333',
-    backgroundColor: '#f9d5a7',
-    height: '100vh',
-    width: '25vw',
-    zIndex: 20,
+  topbar: css({
+    height: '10vh',
+    marginTop: '2vh'
   }),
 
   logoImg: css({
-    paddingTop: '2vh',
-    width: '50%',
-    minWidth: '80px',
-    maxWidth: '20vh'
+    maxHeight: '80%',
+    maxWidth: '80%',
+    width: 'auto',
+    height: 'auto',
+    position: 'absolute',
+    top: 0,
+    bottom: 0,
+    left: 0,
+    paddingLeft: '1vw',
+    margin: 'auto',
+  }),
+
+  bar: css({
+    boxShadow: '-0.5vh 1.5vh #333',
+    backgroundColor: '#f9d5a7',
+    position: 'relative'
+  }),
+  
+  visualComponent: css({
+    marginBottom: '5vh',
+    marginLeft: '5vw',
+    marginRight: '5vw',
   })
 });
 
@@ -36,12 +44,16 @@ function App() {
 
   return (
     <div className={styles.app}>
-      <div className={styles.sidebar}>
+      <div className={cx(styles.topbar, styles.bar, styles.visualComponent)}>
         <img src="./assets/logo.png" alt="Model Logo" draggable='false' className={styles.logoImg} />
-        <Blurb />
-        <Footer />
+        <Links />
       </div>
-      <ImageCarousel />
+      <div className={styles.visualComponent}>
+        <ImageCarousel />
+      </div>
+      <div className={cx(styles.bar, styles.visualComponent)}>
+        <Blurb />
+      </div>
     </div>
   );
 }
