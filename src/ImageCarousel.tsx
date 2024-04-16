@@ -25,6 +25,7 @@ const ImageCarousel: React.FC = () => {
         slidesToShow: 3,
         slidesToScroll: 1,
         autoplay: true,
+        arrows: false,
         responsive: [
             {
                 breakpoint: 768, 
